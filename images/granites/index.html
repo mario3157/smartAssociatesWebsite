@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMART Associates — Exports &amp; Imports</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: calc(100vh - 72px);
+      margin-top: 72px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      position: relative; overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(45,80,22,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        linear-gradient(170deg, var(--dark) 0%, var(--dark2) 50%, var(--dark3) 100%);
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 4rem 4rem; max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.65rem; font-weight: 400; letter-spacing: 0.5em;
+      color: var(--gold); text-transform: uppercase; margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 300; line-height: 0.95; letter-spacing: -0.02em;
+      color: var(--cream); margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.8s 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+
+    .hero-title em { font-style: italic; color: var(--gold); }
+
+    .hero-desc {
+      font-size: 0.95rem; font-weight: 300; line-height: 1.9;
+      color: var(--text-muted); max-width: 520px; margin-bottom: 3.5rem;
+      opacity: 0; animation: fadeUp 0.8s 0.5s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+
+    .hero-cta-row {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.8s 0.65s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+
+    /* Stats bar */
+    .hero-stats {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      opacity: 0; animation: fadeUp 0.8s 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+
+    .stat-item {
+      padding: 2rem; border-right: 1px solid rgba(201,168,76,0.1);
+      transition: background 0.3s;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(201,168,76,0.04); }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem; font-weight: 300; color: var(--gold);
+      line-height: 1; margin-bottom: 0.4rem;
+    }
+    .stat-label { font-size: 0.65rem; font-weight: 300; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); }
+
+    /* What we do */
+    .what-we-do {
+      background: var(--dark2); padding: 7rem 4rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .units-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px; background: rgba(201,168,76,0.1);
+      margin-top: 4rem; border: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .unit-card {
+      background: var(--dark2); padding: 2.5rem 2rem;
+      transition: background 0.4s; cursor: pointer;
+      position: relative; overflow: hidden;
+      text-decoration: none; display: block; color: inherit;
+    }
+    .unit-card::before {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px; background: var(--gold);
+      transform: scaleX(0); transition: transform 0.4s ease;
+    }
+    .unit-card:hover { background: var(--dark3); }
+    .unit-card:hover::before { transform: scaleX(1); }
+
+    .unit-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem; font-weight: 300;
+      color: rgba(201,168,76,0.15); line-height: 1;
+      margin-bottom: 1rem; transition: color 0.4s;
+    }
+    .unit-card:hover .unit-num { color: rgba(201,168,76,0.35); }
+    .unit-name { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream2); margin-bottom: 0.75rem; }
+    .unit-desc { font-size: 0.82rem; font-weight: 300; line-height: 1.7; color: var(--text-muted); }
+
+    /* Contact */
+    .contact-strip {
+      background: var(--stone); padding: 5rem 4rem;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+    .contact-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; font-weight: 400; }
+    .contact-strip p, .contact-strip a { font-size: 0.88rem; font-weight: 300; color: var(--cream2); line-height: 2; text-decoration: none; transition: color 0.3s; display: block; }
+    .contact-strip a:hover { color: var(--gold-light); }
+
+    @media (max-width: 768px) {
+      .hero-content { padding: 4rem 1.5rem 2rem; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .what-we-do { padding: 4rem 1.5rem; }
+      .contact-strip { padding: 3rem 1.5rem; grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Rajamahendravaram · Andhra Pradesh · India</p>
+      <h1 class="hero-title">Bridging <em>India's</em><br>Finest to the World</h1>
+      <p class="hero-desc">SMART Associates is a premium export &amp; import trading company — a group of units sourcing authentic Indian granites, agricultural products, natural spices, and artisanal gift items directly from verified suppliers, meeting the highest international standards.</p>
+      <div class="hero-cta-row">
+        <a href="/food.html" class="btn-primary">Explore Products</a>
+        <a href="#contact" class="btn-outline">Contact Us</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Business Units</div></div>
+      <div class="stat-item"><div class="stat-num">30+</div><div class="stat-label">Export Products</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Quality Assured</div></div>
+      <div class="stat-item"><div class="stat-num">🌍</div><div class="stat-label">Global Markets</div></div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="what-we-do">
+    <p class="section-label reveal">What We Do</p>
+    <h2 class="section-title reveal">A <em>Group of Units</em><br>under One Roof</h2>
+    <p class="reveal" style="font-size:0.88rem;font-weight:300;color:var(--text-muted);max-width:600px;line-height:1.9;">We operate as a multi-vertical export house — sourcing, quality-checking, and delivering India's most prized commodities to global buyers. Each unit specialises in a distinct category, ensuring depth of expertise and reliable supply chains.</p>
+    <div class="gold-divider reveal"></div>
+    <div class="units-grid">
+      <a href="/granites.html" class="unit-card reveal"><div class="unit-num">01</div><div class="unit-name">Granites</div><div class="unit-desc">Premium Indian granite slabs &amp; tiles. Unique patterns from quarries across South India.</div></a>
+      <a href="/food.html" class="unit-card reveal"><div class="unit-num">02</div><div class="unit-name">Raw Food</div><div class="unit-desc">Grains, millets, pulses, and root vegetables. Farm-fresh and traditionally grown.</div></a>
+      <a href="/food.html" class="unit-card reveal"><div class="unit-num">03</div><div class="unit-name">Food Products</div><div class="unit-desc">Processed spices, superfood powders, honey, and specialty dried products.</div></a>
+      <a href="/food.html" class="unit-card reveal"><div class="unit-num">04</div><div class="unit-name">Dry Food Products</div><div class="unit-desc">Dehydrated fruits, vegetables, and powders with full nutritional retention.</div></a>
+      <a href="/gifts.html" class="unit-card reveal"><div class="unit-num">05</div><div class="unit-name">Gift Items</div><div class="unit-desc">Curated Indian artisanal products. Perfect for corporate gifting and cultural exports.</div></a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-strip" id="contact">
+    <div class="reveal">
+      <p class="contact-label">📞 Phone</p>
+      <a href="tel:+919866240043">+91 98662 40043</a>
+      <a href="tel:+919490493488">+91 94904 93488</a>
+      <a href="tel:+919652119725">+91 96521 19725</a>
+    </div>
+    <div class="reveal">
+      <p class="contact-label">📧 Email</p>
+      <a href="mailto:smartpearls525@gmail.com">smartpearls525@gmail.com</a>
+      <div class="gold-divider" style="margin:1.2rem 0"></div>
+      <p class="contact-label">🏛 FSSAI</p>
+      <p style="font-size:0.78rem;color:var(--text-muted)">102526107873413</p>
+    </div>
+    <div class="reveal">
+      <p class="contact-label">📍 Head Office</p>
+      <p>D. No. 102-6-9<br>Nava Bharath Nagar<br>Bommuru – 533101<br>Rajamahendravaram<br>East Godavari District<br>Andhra Pradesh, India</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 SMART Associates. All rights reserved. · Supporting local farmers · Global quality standards.</p>
+    <div class="footer-logo">SA</div>
+  </footer>
+
+  <script src="/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Products — SMART Associates</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .food-section { padding: 3rem 4rem 5rem; background: var(--dark2); }
+
+    .category-header {
+      display: flex; align-items: baseline; gap: 1.5rem;
+      margin: 3rem 0 2rem; padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .category-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 300; color: var(--cream);
+    }
+    .category-count { font-size: 0.65rem; letter-spacing: 0.3em; color: var(--text-muted); text-transform: uppercase; }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.08);
+    }
+
+    .food-card { background: var(--dark2); padding: 2rem; transition: background 0.3s; }
+    .food-card:hover { background: var(--dark3); }
+    .food-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+    .food-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; color: var(--cream); margin-bottom: 0.25rem; }
+    .food-local { font-size: 0.72rem; color: var(--gold-dim); font-style: italic; margin-bottom: 0.75rem; font-family: 'Cormorant Garamond', serif; }
+    .food-desc { font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--text-muted); margin-bottom: 1rem; }
+    .food-price { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--gold); font-weight: 400; border-top: 1px solid rgba(201,168,76,0.15); padding-top: 0.75rem; }
+
+    @media (max-width: 768px) {
+      .food-section { padding: 2rem 1.5rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <div class="section-hero" style="margin-top:72px" data-title="Food">
+    <a href="/index.html" class="back-btn">← Back to Home</a>
+    <p class="section-label">Units 02 · 03 · 04</p>
+    <h2 class="section-title"><em>Premium</em><br>Food Products</h2>
+    <p style="font-size:0.85rem;font-weight:300;color:var(--text-muted);max-width:520px;line-height:1.9;margin-top:1rem;">Authentic Indian grains, spices, superfood powders, and natural products. Sourced directly from farmers. FSSAI certified.</p>
+  </div>
+
+  <div class="food-section">
+
+    <div class="category-header reveal">
+      <span class="category-name">🌾 Traditional Grains &amp; Millets</span>
+      <span class="category-count">5 products</span>
+    </div>
+    <div class="food-grid">
+      <div class="food-card reveal"><span class="food-icon">☕</span><div class="food-name">Coffee</div><div class="food-local">కాఫీ (Kāphī)</div><p class="food-desc">Premium quality coffee beans and powder. Sourced from finest growing regions.</p><div class="food-price">₹450 – ₹600 per kg</div></div>
+      <div class="food-card reveal"><span class="food-icon">🌽</span><div class="food-name">Sorghum</div><div class="food-local">జొన్నలు (Jonnaḷu)</div><p class="food-desc">High protein grain, versatile use in food industry. Nutritious and gluten-free.</p><div class="food-price">₹350 – ₹450 per kg</div></div>
+      <div class="food-card reveal"><span class="food-icon">🌾</span><div class="food-name">Pearl Millet</div><div class="food-local">సజ్జలు (Sajjaḷu)</div><p class="food-desc">Rich in minerals and fiber. Excellent for health food products.</p><div class="food-price">₹380 – ₹500 per kg</div></div>
+      <div class="food-card reveal"><span class="food-icon">🥜</span><div class="food-name">Finger Millet (Ragi)</div><div class="food-local">రాగులు (Rāguḷu)</div><p class="food-desc">Ancient grain rich in calcium. Popular in health supplements and traditional foods.</p><div class="food-price">₹400 – ₹550 per kg</div></div>
+      <div class="food-card reveal"><span class="food-icon">🌿</span><div class="food-name">Little Millet</div><div class="food-local">సామలు (Sāmaḷu)</div><p class="food-desc">Nutritious grain with excellent shelf life. Ideal for organic product lines.</p><div class="food-price">₹420 – ₹550 per kg</div></div>
+    </div>
+
+    <div class="category-header reveal">
+      <span class="category-name">🫘 Pulses &amp; Legumes</span>
+      <span class="category-count">2 products</span>
+    </div>
+    <div class="food-grid">
+      <div class="food-card reveal"><span class="food-icon">❤️</span><div class="food-name">Kidney Beans</div><div class="food-local">రాజ్మా (Rāzmā)</div><p class="food-desc">High protein legume, rich in fiber. Essential for vegetarian cuisine worldwide.</p><div class="food-price">₹650 – ₹850 per kg</div></div>
+      <div class="food-card reveal"><span class="food-icon">🫘</span><div class="food-name">Beans (Green/French)</div><div class="food-local">బీన్స్ (Bīns)</div><p class="food-desc">Fresh or dried beans. Versatile ingredient for cuisines across the globe.</p><div class="food-price">₹550 – ₹750 per kg</div></div>
+    </div>
+
+    <div class="category-header reveal">
+      <span class="category-name">🥔 Vegetables &amp; Roots</span>
+      <span class="category-count">2 products</span>
+    </div>
+    <div class="food-grid">
+      <div class="food-card reveal"><span class="food-icon">🥬</span><div class="food-name">Yam</div><div class="food-local">కంద (Kanda)</div><p class="food-desc">Starchy root vegetable, nutritious and versatile. Popular in traditional cuisine.</p><div class="food-price">₹400 – ₹550 per kg</div></div>
+      <div class="food-card reveal"><span class="food-icon">🎃</span><div class="food-name">Pumpkin</div><div class="food-local">గుమ్మడి కాయ (Gummadi Kāya)</div><p class="food-desc">Fresh or dried pumpkin. Nutritious vegetable rich in vitamins and minerals.</p><div class="food-price">₹300 – ₹400 per kg</div></div>
+    </div>
+
+    <div class="category-header reveal">
+      <span class="category-name">🌶️ Spices &amp; Powders</span>
+      <span class="category-count">6 products</span>
+    </div>
+    <div class="food-grid">
+      <div class="food-card reveal"><span class="food-icon">🍊</span><div class="food-name">Tamarind</div><div class="food-local">చింతపండు (Chintapandu)</div><p class="food-desc">Tangy spice essential in Asian cuisines. Used in chutneys, drinks, and dishes.</p><div class="food-price">₹450 – ₹600 per kg</div></div>
+      <div class="food-card reveal"><span class="food-icon">🌶️</span><div class="food-name">Red Chili Powder</div><div class="food-local">కారం (Kāram)</div><p class="food-desc">Pure, potent chili powder. Essential spice for cuisines worldwide.</p><div class="food-price">₹850 – ₹1,200 per kg</div></div>
+      <div class="food-card reveal"><span class="food-icon">💛</span><div class="food-name">Turmeric Powder</div><div class="food-local">పసుపు (Pasupu)</div><p class="food-desc">Premium turmeric powder rich in curcumin. Used in food, cosmetics, and wellness.</p><div class="food-price">₹950 – ₹1,400 per kg</div></div>
+      <div class="food-card reveal"><span class="food-icon">🌿</span><div class="food-name">Curry Leaves Powder</div><div class="food-local">కరివేపాకు పొడి</div><p class="food-desc">Aromatic curry leaves powder. Rich in antioxidants and traditional flavor.</p><div class="food-price">₹1,200 – ₹1,600 per kg</div></div>
+      <div class="food-card reveal"><span class="food-icon">🌱</span><div class="food-name">Moringa Leaves Powder</div><div class="food-local">మునగాకు పొడి</div><p class="food-desc">Nutritious superfood powder. Rich in vitamins, minerals, and protein.</p><div class="food-price">₹1,500 – ₹2,000 per kg</div></div>
+      <div class="food-card reveal"><span class="food-icon">🔴</span><div class="food-name">Roselle Leaves Powder</div><div class="food-local">గోంగూర పొడి (Gongūr Podi)</div><p class="food-desc">Tangy, nutrient-rich powder. Popular in beverages and health supplements.</p><div class="food-price">₹1,300 – ₹1,800 per kg</div></div>
+    </div>
+
+    <div class="category-header reveal">
+      <span class="category-name">🍯 Natural Products</span>
+      <span class="category-count">2 products</span>
+    </div>
+    <div class="food-grid">
+      <div class="food-card reveal"><span class="food-icon">🍯</span><div class="food-name">Honey</div><div class="food-local">తేనె (Tēnē)</div><p class="food-desc">Pure, raw honey with natural properties. Used in food, beverages, and wellness products.</p><div class="food-price">₹400 – ₹600 per kg</div></div>
+      <div class="food-card reveal"><span class="food-icon">🌾</span><div class="food-name">Vetiver Roots</div><div class="food-local">వట్టివేళ్ళు (Vattivēḷḷu)</div><p class="food-desc">Aromatic roots used in traditional remedies, perfumes, and wellness products.</p><div class="food-price">₹800 – ₹1,200 per kg</div></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 SMART Associates · Food Products Unit</p>
+    <div class="footer-logo">SA</div>
+  </footer>
+
+  <script src="/main.js"></script>
+</body>
+</html>

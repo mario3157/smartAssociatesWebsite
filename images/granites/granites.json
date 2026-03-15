@@ -1,0 +1,20 @@
+[
+  {
+    "code": "G001",
+    "name": "Black Galaxy",
+    "image": "Black Galaxy - G001.jpg",
+    "origin": "Ongole, Andhra Pradesh"
+  },
+  {
+    "code": "G002",
+    "name": "Tan Brown",
+    "image": "Tan Brown - G002.jpg",
+    "origin": "Warangal, Telangana"
+  },
+  {
+    "code": "G003",
+    "name": "Steel Grey",
+    "image": "Steel Grey - G003.jpg",
+    "origin": "Hosur, Tamil Nadu"
+  }
+]

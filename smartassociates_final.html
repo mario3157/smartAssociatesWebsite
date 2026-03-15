@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartAssociates - Premium Dehydrated Fruits & Vegetables</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2d5016;
+            --secondary: #8bc34a;
+            --accent: #ff9800;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: white;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, var(--primary) 0%, #1f3d0d 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        nav .logo-img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background: white;
+            padding: 3px;
+        }
+
+        nav .logo-text {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav .logo-text h2 {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1f3d0d 50%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #e68900;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 152, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 60px 20px;
+            background: var(--light);
+        }
+
+        .about h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .category-section {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 8px 20px rgba(139, 195, 74, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .product-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .product-card .local-name {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 0.8rem;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary) 0%, #1f3d0d 100%);
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .contact h2 {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .contact-item p {
+            margin: 0.5rem 0;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Company Info */
+        .company-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .company-info h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .company-info p {
+            margin: 0.5rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            color: #999;
+            text-align: center;
+            padding: 2rem;
+            border-top: 2px solid var(--primary);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            nav .logo-section {
+                gap: 0.5rem;
+            }
+
+            nav .logo-img {
+                height: 40px;
+                width: 40px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title, .about h2, .contact h2 {
+                font-size: 1.8rem;
+            }
+
+            .category-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Animations */
+        .product-card {
+            animation: slideUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.15s; }
+        .product-card:nth-child(3) { animation-delay: 0.2s; }
+        .product-card:nth-child(4) { animation-delay: 0.25s; }
+        .product-card:nth-child(5) { animation-delay: 0.3s; }
+        .product-card:nth-child(6) { animation-delay: 0.35s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo-section">
+                <svg class="logo-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Globe -->
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#2d5016" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#2d5016" stroke-width="1.5"/>
+                    
+                    <!-- Latitude lines -->
+                    <ellipse cx="50" cy="50" rx="40" ry="15" fill="none" stroke="#2d5016" stroke-width="1"/>
+                    <ellipse cx="50" cy="50" rx="40" ry="25" fill="none" stroke="#2d5016" stroke-width="1"/>
+                    
+                    <!-- Longitude lines -->
+                    <path d="M 50 10 Q 60 50 50 90" fill="none" stroke="#2d5016" stroke-width="1"/>
+                    <path d="M 50 10 Q 40 50 50 90" fill="none" stroke="#2d5016" stroke-width="1"/>
+                    
+                    <!-- Plane -->
+                    <path d="M 50 30 L 65 50 L 50 45 L 35 50 Z" fill="#2d5016"/>
+                    
+                    <!-- Ship -->
+                    <path d="M 45 65 L 55 65 L 54 70 L 46 70 Z" fill="#2d5016"/>
+                </svg>
+                <div class="logo-text">
+                    <h2>SmartAssociates</h2>
+                </div>
+            </div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Premium Agricultural Exports</h1>
+            <p>Sourcing authentic Indian agricultural products from Andhra Pradesh for global markets. Grains, pulses, spices, powders, and natural products of exceptional quality.</p>
+            <a href="#products" class="cta-button">Explore Our Products</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About SmartAssociates</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>SmartAssociates is an <span class="highlight">export-focused agricultural trading and processing company</span> based in Rajamahendravaram, Andhra Pradesh, India.</p>
+                    <p>We specialize in sourcing and exporting <span class="highlight">premium quality grains, pulses, traditional spices, and natural powders</span> directly from trusted farmers and producers across Andhra Pradesh.</p>
+                    <p>Our commitment is to deliver authentic Indian agricultural products that meet the highest international standards while supporting local farmers and sustainable agriculture.</p>
+                </div>
+                <div class="about-text">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Our Mission</h3>
+                    <p>To become the <span class="highlight">trusted global supplier of authentic Indian agricultural products</span>, connecting quality producers with international markets.</p>
+                    <h3 style="color: var(--primary); margin-top: 2rem; margin-bottom: 1rem;">Our Expertise</h3>
+                    <p>✓ Traditional Indian grains and millets</p>
+                    <p>✓ Organic pulses and legumes</p>
+                    <p>✓ Pure, natural spice powders</p>
+                    <p>✓ Herbal leaf powders</p>
+                    <p>✓ Natural honey and speciality products</p>
+                    <h3 style="color: var(--primary); margin-top: 1rem; margin-bottom: 1rem;">Quality Assurance</h3>
+                    <p>All products are sourced directly from verified suppliers, processed with care, and tested for quality before export.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Premium Export Products</h2>
+
+            <!-- Grains & Millets -->
+            <div class="category-section">
+                <h3 class="category-title">🌾 Traditional Grains & Millets</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon">☕</div>
+                        <h3>Coffee</h3>
+                        <div class="local-name">కాఫీ (Kāphī)</div>
+                        <p>Premium quality coffee beans and powder. Sourced from finest growing regions.</p>
+                        <div class="product-price">₹450 - ₹600 per kg</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🌽</div>
+                        <h3>Sorghum</h3>
+                        <div class="local-name">జొన్నలు (Jonnaḷu)</div>
+                        <p>High protein grain, versatile use in food industry. Nutritious and gluten-free.</p>
+                        <div class="product-price">₹350 - ₹450 per kg</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🌾</div>
+                        <h3>Pearl Millet</h3>
+                        <div class="local-name">సజ్జలు (Sajjaḷu)</div>
+                        <p>Rich in minerals and fiber. Excellent for health food products.</p>
+                        <div class="product-price">₹380 - ₹500 per kg</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🥜</div>
+                        <h3>Finger Millet (Ragi)</h3>
+                        <div class="local-name">రాగులు (Rāguḷu)</div>
+                        <p>Ancient grain rich in calcium. Popular in health supplements and traditional foods.</p>
+                        <div class="product-price">₹400 - ₹550 per kg</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🌿</div>
+                        <h3>Little Millet</h3>
+                        <div class="local-name">సామలు (Sāmaḷu)</div>
+                        <p>Nutritious grain with excellent shelf life. Ideal for organic product lines.</p>
+                        <div class="product-price">₹420 - ₹550 per kg</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pulses & Legumes -->
+            <div class="category-section">
+                <h3 class="category-title">🫘 Pulses & Legumes</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon">❤️</div>
+                        <h3>Kidney Beans</h3>
+                        <div class="local-name">రాజ్మా (Rāzmā)</div>
+                        <p>High protein legume, rich in fiber. Essential for vegetarian cuisine worldwide.</p>
+                        <div class="product-price">₹650 - ₹850 per kg</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🫘</div>
+                        <h3>Beans (Green/French Beans)</h3>
+                        <div class="local-name">బీన్స్ (Bīns)</div>
+                        <p>Fresh or dried beans. Versatile ingredient for cuisines across the globe.</p>
+                        <div class="product-price">₹550 - ₹750 per kg</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vegetables & Roots -->
+            <div class="category-section">
+                <h3 class="category-title">🥔 Vegetables & Roots</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon">🥬</div>
+                        <h3>Yam</h3>
+                        <div class="local-name">కంద (Kanda)</div>
+                        <p>Starchy root vegetable, nutritious and versatile. Popular in traditional cuisine.</p>
+                        <div class="product-price">₹400 - ₹550 per kg</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🎃</div>
+                        <h3>Pumpkin</h3>
+                        <div class="local-name">గుమ్మడి కాయ (Gummadi Kāya)</div>
+                        <p>Fresh or dried pumpkin. Nutritious vegetable rich in vitamins and minerals.</p>
+                        <div class="product-price">₹300 - ₹400 per kg</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spices & Powders -->
+            <div class="category-section">
+                <h3 class="category-title">🌶️ Spices & Powders</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon">🍊</div>
+                        <h3>Tamarind</h3>
+                        <div class="local-name">చింతపండు (Chintapandu)</div>
+                        <p>Tangy spice essential in Asian cuisines. Used in chutneys, drinks, and dishes.</p>
+                        <div class="product-price">₹450 - ₹600 per kg</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🌶️</div>
+                        <h3>Red Chili Powder</h3>
+                        <div class="local-name">కారం (Kāram)</div>
+                        <p>Pure, potent chili powder. Essential spice for cuisines worldwide.</p>
+                        <div class="product-price">₹850 - ₹1,200 per kg</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">💛</div>
+                        <h3>Turmeric Powder</h3>
+                        <div class="local-name">పసుపు (Pasupu)</div>
+                        <p>Premium turmeric powder rich in curcumin. Used in food, cosmetics, and wellness.</p>
+                        <div class="product-price">₹950 - ₹1,400 per kg</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🌿</div>
+                        <h3>Curry Leaves Powder</h3>
+                        <div class="local-name">కరివేపాకు పొడి (Karivēpāku Podi)</div>
+                        <p>Aromatic curry leaves powder. Rich in antioxidants and traditional flavor.</p>
+                        <div class="product-price">₹1,200 - ₹1,600 per kg</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🌱</div>
+                        <h3>Moringa Leaves Powder</h3>
+                        <div class="local-name">మునగాకు పొడి (Munagāku Podi)</div>
+                        <p>Nutritious superfood powder. Rich in vitamins, minerals, and protein.</p>
+                        <div class="product-price">₹1,500 - ₹2,000 per kg</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🔴</div>
+                        <h3>Roselle Leaves Powder</h3>
+                        <div class="local-name">గోంగూర పొడి (Gongūr Podi)</div>
+                        <p>Tangy, nutrient-rich powder. Popular in beverages and health supplements.</p>
+                        <div class="product-price">₹1,300 - ₹1,800 per kg</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Natural Products -->
+            <div class="category-section">
+                <h3 class="category-title">🍯 Natural Products</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon">🍯</div>
+                        <h3>Honey</h3>
+                        <div class="local-name">తేనె (Tēnē)</div>
+                        <p>Pure, raw honey with natural properties. Used in food, beverages, and wellness products.</p>
+                        <div class="product-price">₹400 - ₹600 per kg</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-icon">🌾</div>
+                        <h3>Vetiver Roots</h3>
+                        <div class="local-name">వట్టివేళ్ళు (Vattivēḷḷu)</div>
+                        <p>Aromatic roots used in traditional remedies, perfumes, and wellness products.</p>
+                        <div class="product-price">₹800 - ₹1,200 per kg</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-item">
+                    <h3>📞 Phone</h3>
+                    <p><a href="tel:+919866240043">+91 9866240043</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:smartpearls525@gmail.com">smartpearls525@gmail.com</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <h3>📍 Address</h3>
+                    <p>Door No. 102-6-9, Sruthi Hospital<br>E Railway Station Road<br>Navabharat Nagar<br>Rajamahendravaram<br>East Godavari District<br>Andhra Pradesh 533101, India</p>
+                </div>
+            </div>
+
+            <div class="company-info">
+                <h3>SmartAssociates</h3>
+                <p><strong>Export-Focused Agricultural Trading Company</strong></p>
+                <p>Premium Quality Grains, Pulses, Spices & Natural Products</p>
+                <p>FSSAI Application: 102526107873413</p>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem;">We are committed to supplying authentic Indian agricultural products that meet international quality standards. All our products are sourced directly from verified suppliers and processed with care to maintain nutritional value and purity.</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">🌍 Serving global markets | 🌾 Supporting local farmers | ✅ Quality assured</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SmartAssociates. All rights reserved.</p>
+        <p>Premium Agricultural Exports from Andhra Pradesh, India</p>
+    </footer>
+</body>
+</html>

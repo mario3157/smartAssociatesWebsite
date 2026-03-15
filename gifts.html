@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift Items — SMART Associates</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .gifts-section { padding: 3rem 4rem 5rem; background: #ffffff; }
+    .gifts-coming {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      min-height: 50vh; text-align: center; gap: 1.5rem;
+    }
+    .gifts-coming-icon { font-size: 6rem; animation: float 4s ease-in-out infinite; }
+    .gifts-coming h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem; font-weight: 700; color: #000000;
+    }
+    .gifts-coming p {
+      font-size: 1.15rem; font-weight: 500; color: #333333;
+      max-width: 480px; line-height: 1.9;
+    }
+    /* Force white hero — override any inherited dark styles */
+    body { background: #ffffff !important; color: #111111 !important; }
+    body::before { display: none !important; }
+    .section-hero {
+      background: #ffffff !important;
+      border-bottom: 2px solid #d8d4cc !important;
+    }
+    nav {
+      background: #ffffff !important;
+      border-bottom: 2px solid #d4a017 !important;
+      backdrop-filter: none !important;
+    }
+    .nav-logo-text { color: #1a4d1a !important; }
+    .nav-tabs li a { color: #111111 !important; }
+    .nav-tabs li a:hover, .nav-tabs li a.active { color: #1a4d1a !important; }
+
+    @media (max-width: 768px) { .gifts-section { padding: 2rem 1.5rem 3rem; } }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <div class="section-hero" style="margin-top:72px" data-title="Gifts">
+    <a href="/index.html" class="back-btn">← Back to Home</a>
+    <p class="section-label">Unit 05</p>
+    <h2 class="section-title"><em>Artisanal</em><br>Gift Items</h2>
+  </div>
+
+  <div class="gifts-section">
+    <div class="gifts-coming">
+      <div class="gifts-coming-icon">🎁</div>
+      <h2>Coming Soon</h2>
+      <div class="gold-divider" style="margin:0 auto"></div>
+      <p>Our curated collection of authentic Indian artisanal gift items is being assembled. Premium corporate gifts, cultural artefacts, and handcrafted products from across India — launching soon.</p>
+      <a href="/index.html#contact" class="btn-outline" style="margin-top:1rem">Get Notified → Contact Us</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 SMART Associates · Gift Items Unit</p>
+    <div class="footer-logo">SA</div>
+  </footer>
+
+  <script src="/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Granites — SMART Associates</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .granite-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 4rem;
+      background: var(--dark2);
+    }
+
+    .granite-card {
+      background: var(--dark3);
+      border: 1px solid rgba(201,168,76,0.1);
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+      cursor: pointer;
+    }
+
+    .granite-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.25);
+    }
+
+    .granite-img-wrap {
+      width: 100%; height: 240px;
+      background: linear-gradient(135deg, var(--stone) 0%, var(--stone2) 100%);
+      overflow: hidden; position: relative;
+    }
+
+    .granite-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .granite-card:hover .granite-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .granite-img-wrap::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.55) 100%);
+    }
+
+    /* Placeholder when no image */
+    .granite-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem; color: rgba(201,168,76,0.2);
+    }
+
+    .granite-info {
+      padding: 1.5rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .granite-code {
+      font-size: 0.6rem; letter-spacing: 0.4em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.4rem; font-weight: 400;
+    }
+
+    .granite-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400; color: var(--cream);
+    }
+
+    .granite-origin {
+      font-size: 0.75rem; font-weight: 300;
+      color: var(--text-muted); margin-top: 0.3rem;
+    }
+
+    /* Loading & empty states */
+    .state-message {
+      grid-column: 1 / -1;
+      text-align: center; padding: 5rem 2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    .state-message span {
+      display: block; font-family: 'Jost', sans-serif;
+      font-size: 0.75rem; letter-spacing: 0.2em;
+      color: var(--gold-dim); margin-top: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .granite-grid { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <div class="section-hero" style="margin-top:72px" data-title="Granite">
+    <a href="/index.html" class="back-btn">← Back to Home</a>
+    <p class="section-label">Unit 01</p>
+    <h2 class="section-title"><em>Premium</em><br>Indian Granites</h2>
+    <p style="font-size:0.85rem;font-weight:300;color:var(--text-muted);max-width:520px;line-height:1.9;margin-top:1rem;">
+      Sourced from the finest quarries across South India. Each piece is unique in pattern, colour, and character.
+    </p>
+  </div>
+
+  <div class="granite-grid" id="granite-grid">
+    <div class="state-message">Loading collection…<span>Please wait</span></div>
+  </div>
+
+  <footer>
+    <p>© 2026 SMART Associates · Granites Unit</p>
+    <div class="footer-logo">SA</div>
+  </footer>
+
+  <script src="/main.js"></script>
+  <script>
+    async function loadGranites() {
+      const grid = document.getElementById('granite-grid');
+
+      try {
+        const res = await fetch('/granites.json?v=' + Date.now());
+        if (!res.ok) throw new Error('Could not load granites.json');
+        const granites = await res.json();
+
+        if (!granites.length) {
+          grid.innerHTML = `<div class="state-message">Collection Coming Soon<span>Images are being prepared</span></div>`;
+          return;
+        }
+
+        grid.innerHTML = granites.map((g, i) => `
+          <div class="granite-card reveal" style="transition-delay:${i * 60}ms">
+            <div class="granite-img-wrap">
+              ${g.image
+                ? `<img src="/images/granites/${g.image}" alt="${g.name}" loading="lazy"
+                        onerror="this.parentElement.innerHTML='<div class=granite-placeholder>◈</div>'">`
+                : `<div class="granite-placeholder">◈</div>`
+              }
+            </div>
+            <div class="granite-info">
+              <div class="granite-code">${g.code}</div>
+              <div class="granite-name">${g.name}</div>
+              ${g.origin ? `<div class="granite-origin">${g.origin}</div>` : ''}
+            </div>
+          </div>
+        `).join('');
+
+        // Re-run reveal observer for dynamically added cards
+        initReveal();
+
+      } catch (err) {
+        grid.innerHTML = `<div class="state-message">Could not load granite collection<span>${err.message}</span></div>`;
+      }
+    }
+
+    // initReveal is defined in main.js — call after DOM ready
+    document.addEventListener('DOMContentLoaded', loadGranites);
+  </script>
+</body>
+</html>
