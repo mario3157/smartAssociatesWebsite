@@ -6,7 +6,6 @@
   <title>SMART Associates — Exports &amp; Imports</title>
   <link rel="stylesheet" href="/styles.css">
   <style>
-    /* ── GLOBAL LIGHT OVERRIDES ── */
     :root {
       --white: #ffffff;
       --off-white: #f7f5f0;
@@ -23,55 +22,35 @@
       --border: #e0ddd5;
     }
 
-    body {
-      background: var(--white);
-      color: #111111;
-      font-size: 22px;
-    }
-
+    body { background: #ffffff; color: #111111; font-size: 22px; }
     body::before { display: none; }
 
-    /* ── NAV ── */
     nav {
-      background: var(--white) !important;
+      background: #ffffff !important;
       border-bottom: 2px solid var(--gold-bright) !important;
       backdrop-filter: none !important;
     }
     .nav-logo-text { color: var(--green-dark) !important; }
-    .nav-tabs li a { color: var(--ink) !important; }
+    .nav-tabs li a { color: #111111 !important; }
     .nav-tabs li a:hover, .nav-tabs li a.active { color: var(--green-dark) !important; }
     .nav-tabs li a::after { background: var(--green-dark) !important; }
     .nav-hamburger { border-color: var(--green-dark) !important; color: var(--green-dark) !important; }
 
-    /* ── HERO ── */
     .hero {
       margin-top: 72px;
-      display: flex;
-      flex-direction: column;
-      position: relative; overflow: hidden;
-      background: var(--white);
-    }
-
-    .hero-bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 65% 70% at 85% 50%, rgba(43,125,50,0.10) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 50% at 10% 90%, rgba(184,134,11,0.08) 0%, transparent 60%),
-        var(--white);
-      pointer-events: none;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
     }
 
     .hero-content {
-      position: relative; z-index: 2;
-      display: flex; flex-direction: column;
-      padding: 2rem 5rem 2rem; max-width: 960px;
+      padding: 2.5rem 5rem 2rem;
+      max-width: 960px;
     }
 
     .hero-eyebrow {
-      font-size: 1rem; font-weight: 700; letter-spacing: 0.35em;
+      font-size: 1.15rem; font-weight: 700; letter-spacing: 0.35em;
       color: var(--green-mid); text-transform: uppercase; margin-bottom: 1rem;
       display: flex; align-items: center; gap: 1rem;
-      opacity: 0; animation: fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) forwards;
     }
     .hero-eyebrow::before {
       content: ''; display: inline-block; width: 32px; height: 2px;
@@ -80,196 +59,121 @@
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 6vw, 6rem);
+      font-size: clamp(3.5rem, 6vw, 6.5rem);
       font-weight: 700; line-height: 1; letter-spacing: -0.02em;
-      color: #000000; margin-bottom: 1.5rem;
-      opacity: 0; animation: fadeUp 0.8s 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
+      color: #000000; margin-bottom: 1.2rem;
     }
     .hero-title em { font-style: italic; color: var(--green-dark); }
 
     .hero-desc {
-      font-size: 1.1rem; font-weight: 500; line-height: 1.9;
-      color: #111111; max-width: 580px; margin-bottom: 2rem;
+      font-size: 1.2rem; font-weight: 500; line-height: 1.9;
+      color: #111111; max-width: 580px; margin-bottom: 1.5rem;
       border-left: 4px solid var(--gold-bright); padding-left: 1.5rem;
-      opacity: 0; animation: fadeUp 0.8s 0.5s cubic-bezier(0.16,1,0.3,1) forwards;
     }
 
-    .hero-cta-row {
-      display: flex; gap: 1.5rem; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp 0.8s 0.65s cubic-bezier(0.16,1,0.3,1) forwards;
-    }
+    .hero-cta-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 
-    /* ── CTA BUTTONS ── */
     .btn-primary {
-      background: var(--green-dark) !important;
-      color: #fff !important;
-      clip-path: none !important;
-      border-radius: 2px;
-      font-size: 1.1rem !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.2em !important;
-      padding: 1.3rem 3.5rem !important;
+      background: var(--green-dark) !important; color: #fff !important;
+      clip-path: none !important; border-radius: 2px;
+      font-size: 1.1rem !important; font-weight: 700 !important;
+      letter-spacing: 0.2em !important; padding: 1.3rem 3.5rem !important;
     }
-    .btn-primary:hover {
-      background: var(--green-mid) !important;
-      box-shadow: 0 8px 30px rgba(26,77,26,0.3) !important;
-    }
+    .btn-primary:hover { background: var(--green-mid) !important; box-shadow: 0 8px 30px rgba(26,77,26,0.3) !important; }
     .btn-outline {
-      border: 2px solid var(--green-dark) !important;
-      color: var(--green-dark) !important;
-      font-size: 1.1rem !important;
-      font-weight: 700 !important;
-      padding: 1.3rem 3.5rem !important;
+      border: 2px solid var(--green-dark) !important; color: var(--green-dark) !important;
+      font-size: 1.1rem !important; font-weight: 700 !important; padding: 1.3rem 3.5rem !important;
     }
-    .btn-outline:hover {
-      background: var(--green-dark) !important;
-      color: #fff !important;
-    }
+    .btn-outline:hover { background: var(--green-dark) !important; color: #fff !important; }
 
-    /* ── STATS BAR ── */
     .hero-stats {
-      position: relative; z-index: 2;
       display: grid; grid-template-columns: repeat(4, 1fr);
       border-top: 2px solid var(--border);
       background: var(--off-white);
-      opacity: 0; animation: fadeUp 0.8s 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
     }
-
-    .stat-item {
-      padding: 2.2rem 2rem;
-      border-right: 1px solid var(--border);
-      transition: background 0.3s;
-    }
+    .stat-item { padding: 1.5rem 2rem; border-right: 1px solid var(--border); transition: background 0.3s; }
     .stat-item:last-child { border-right: none; }
     .stat-item:hover { background: var(--light-grey); }
-
     .stat-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 4.5rem; font-weight: 700; color: var(--green-dark);
-      line-height: 1; margin-bottom: 0.4rem;
+      font-size: 3.5rem; font-weight: 700; color: var(--green-dark); line-height: 1; margin-bottom: 0.3rem;
     }
-    .stat-label {
-      font-size: 1rem; font-weight: 700; letter-spacing: 0.15em;
-      text-transform: uppercase; color: #111111;
-    }
+    .stat-label { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #111111; }
 
-    /* ── WHAT WE DO ── */
-    .what-we-do {
-      background: var(--white); padding: 4rem 5rem;
-      border-top: 1px solid var(--border);
-    }
+    .what-we-do { background: #ffffff; padding: 2.5rem 5rem; border-top: 1px solid var(--border); }
 
-    .section-label {
-      font-size: 1.1rem; font-weight: 700; letter-spacing: 0.4em;
-      text-transform: uppercase; color: var(--green-mid); margin-bottom: 1.5rem;
-    }
+    .section-label { font-size: 1rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 0.75rem; }
 
     .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 6vw, 6.5rem);
-      font-weight: 700; line-height: 1.1;
-      color: #000000; margin-bottom: 2rem;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 700; line-height: 1.1; color: #000000; margin-bottom: 0.75rem;
     }
     .section-title em { font-style: italic; color: var(--green-dark); }
 
-    .what-we-do > p.reveal {
-      font-size: 1.3rem; font-weight: 500; color: #111111;
-      max-width: 620px; line-height: 1.9;
+    .what-we-do > p {
+      font-size: 1.1rem; font-weight: 500; color: #111111; max-width: 620px; line-height: 1.9;
     }
 
     .gold-divider {
       width: 60px; height: 3px;
       background: linear-gradient(90deg, var(--green-dark), var(--gold-bright));
-      margin: 2rem 0; border-radius: 2px;
+      margin: 1rem 0; border-radius: 2px;
     }
 
     .units-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-top: 4rem;
+      gap: 1.2rem; margin-top: 1.2rem;
     }
 
     .unit-card {
-      background: var(--off-white);
-      border: 1.5px solid var(--border);
-      padding: 2.5rem 2rem;
-      transition: all 0.35s ease; cursor: pointer;
+      background: var(--off-white); border: 1.5px solid var(--border);
+      padding: 1.5rem; transition: all 0.35s ease;
       position: relative; overflow: hidden;
-      text-decoration: none; display: block; color: inherit;
-      border-radius: 4px;
+      text-decoration: none; display: block; color: inherit; border-radius: 4px;
     }
     .unit-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 4px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
       background: linear-gradient(90deg, var(--green-dark), var(--gold-bright));
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.4s ease;
+      transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
     }
-    .unit-card:hover {
-      background: var(--white);
-      border-color: var(--green-mid);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(26,77,26,0.12);
-    }
+    .unit-card:hover { background: #ffffff; border-color: var(--green-mid); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(26,77,26,0.12); }
     .unit-card:hover::before { transform: scaleX(1); }
-
     .unit-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4rem; font-weight: 600;
-      color: rgba(26,77,26,0.12); line-height: 1;
-      margin-bottom: 1rem; transition: color 0.4s;
+      font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 600;
+      color: rgba(26,77,26,0.12); line-height: 1; margin-bottom: 0.5rem;
     }
-    .unit-card:hover .unit-num { color: rgba(26,77,26,0.25); }
-    .unit-name {
-      font-size: 1.35rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; color: #000000; margin-bottom: 0.75rem;
-    }
-    .unit-desc {
-      font-size: 1.1rem; font-weight: 500; line-height: 1.75; color: #222222;
-    }
+    .unit-name { font-size: 1.2rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #000000; margin-bottom: 0.5rem; }
+    .unit-desc { font-size: 1rem; font-weight: 500; line-height: 1.7; color: #222222; }
 
-    /* ── CONTACT ── */
     .contact-strip {
-      background: var(--green-dark); padding: 5rem;
+      background: var(--green-dark); padding: 3.5rem 5rem;
       display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4rem;
       border-top: 4px solid var(--gold-bright);
     }
-    .contact-label {
-      font-size: 1.05rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--gold-light); margin-bottom: 1.2rem; font-weight: 700;
-    }
-    .contact-strip p, .contact-strip a {
-      font-size: 1.25rem; font-weight: 500; color: #ffffff;
-      line-height: 2.1; text-decoration: none; transition: color 0.3s; display: block;
-    }
+    .contact-label { font-size: 1rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; font-weight: 700; }
+    .contact-strip p, .contact-strip a { font-size: 1.1rem; font-weight: 500; color: #ffffff; line-height: 2; text-decoration: none; transition: color 0.3s; display: block; }
     .contact-strip a:hover { color: var(--gold-light); }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--charcoal) !important;
-      border-top: none !important;
-    }
+    footer { background: var(--charcoal) !important; border-top: none !important; }
     footer p { color: rgba(255,255,255,0.5) !important; }
     .footer-logo { color: var(--gold-bright) !important; }
 
-    /* ── SCROLLBAR ── */
     ::-webkit-scrollbar-track { background: var(--off-white) !important; }
     ::-webkit-scrollbar-thumb { background: var(--green-dark) !important; }
 
     @media (max-width: 768px) {
-      .hero-content { padding: 4rem 1.5rem 2rem; }
+      .hero-content { padding: 2rem 1.5rem; }
       .hero-stats { grid-template-columns: 1fr 1fr; }
-      .what-we-do { padding: 4rem 1.5rem; }
-      .contact-strip { padding: 3rem 1.5rem; grid-template-columns: 1fr; }
+      .what-we-do { padding: 2rem 1.5rem; }
+      .contact-strip { padding: 2.5rem 1.5rem; grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <div id="nav-placeholder"></div>
 
-  <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Rajamahendravaram · Andhra Pradesh · India</p>
       <h1 class="hero-title">Bridging <em>India's</em><br>Finest to the World</h1>
@@ -287,24 +191,23 @@
     </div>
   </section>
 
-  <!-- WHAT WE DO -->
   <section class="what-we-do">
-    <p class="section-label reveal">What We Do</p>
-    <h2 class="section-title reveal">A <em>Group of Units</em><br>under One Roof</h2>
-    <p class="reveal">We operate as a multi-vertical export house — sourcing, quality-checking, and delivering India's most prized commodities to global buyers. Each unit specialises in a distinct category, ensuring depth of expertise and reliable supply chains.</p>
-    <div class="gold-divider reveal"></div>
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">A <em>Group of Units</em><br>under One Roof</h2>
+    <p>We operate as a multi-vertical export house — sourcing, quality-checking, and delivering India's most prized commodities to global buyers. Each unit specialises in a distinct category, ensuring depth of expertise and reliable supply chains.</p>
+    <div class="gold-divider"></div>
     <div class="units-grid">
-      <a href="/granites.html" class="unit-card reveal">
+      <a href="/granites.html" class="unit-card">
         <div class="unit-num">01</div>
         <div class="unit-name">Granites</div>
         <div class="unit-desc">Premium Indian granite slabs &amp; tiles. Unique patterns sourced from quarries across South India.</div>
       </a>
-      <a href="/food.html" class="unit-card reveal">
+      <a href="/food.html" class="unit-card">
         <div class="unit-num">02</div>
         <div class="unit-name">Food Products</div>
         <div class="unit-desc">Authentic grains, millets, spices, superfood powders, honey and natural products. Farm-fresh and FSSAI certified.</div>
       </a>
-      <a href="/gifts.html" class="unit-card reveal">
+      <a href="/gifts.html" class="unit-card">
         <div class="unit-num">03</div>
         <div class="unit-name">Gift Items</div>
         <div class="unit-desc">Curated Indian artisanal products. Perfect for corporate gifting and cultural exports.</div>
@@ -312,22 +215,21 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="contact-strip" id="contact">
-    <div class="reveal">
+    <div>
       <p class="contact-label">📞 Phone</p>
       <a href="tel:+919866240043">+91 98662 40043</a>
       <a href="tel:+919490493488">+91 94904 93488</a>
       <a href="tel:+919652119725">+91 96521 19725</a>
     </div>
-    <div class="reveal">
+    <div>
       <p class="contact-label">📧 Email</p>
       <a href="mailto:smartpearls525@gmail.com">smartpearls525@gmail.com</a>
-      <div class="gold-divider" style="margin:1.2rem 0; background: linear-gradient(90deg, rgba(240,180,41,0.6), transparent);"></div>
+      <div class="gold-divider" style="margin:1rem 0;"></div>
       <p class="contact-label">🏛 FSSAI</p>
       <p style="font-size:0.85rem; color:rgba(255,255,255,0.55)">102526107873413</p>
     </div>
-    <div class="reveal">
+    <div>
       <p class="contact-label">📍 Head Office</p>
       <p>D. No. 102-6-9<br>Nava Bharath Nagar<br>Bommuru – 533101<br>Rajamahendravaram<br>East Godavari District<br>Andhra Pradesh, India</p>
     </div>
