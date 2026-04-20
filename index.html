@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SMARTS Associates — Exports &amp; Imports</title>
+  <title>SMART Associates — Exports &amp; Imports</title>
   <link rel="stylesheet" href="/styles.css">
   <style>
     /* ── GLOBAL LIGHT OVERRIDES ── */
@@ -46,8 +46,8 @@
     /* ── HERO ── */
     .hero {
       margin-top: 72px;
-      display: grid;
-      grid-template-rows: auto auto;
+      display: flex;
+      flex-direction: column;
       position: relative; overflow: hidden;
       background: var(--white);
     }
@@ -58,26 +58,18 @@
         radial-gradient(ellipse 65% 70% at 85% 50%, rgba(43,125,50,0.10) 0%, transparent 65%),
         radial-gradient(ellipse 50% 50% at 10% 90%, rgba(184,134,11,0.08) 0%, transparent 60%),
         var(--white);
-    }
-
-    /* Decorative bold stripe on right */
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      top: 0; right: 0; bottom: 0;
-      width: 6px;
-      background: linear-gradient(180deg, var(--green-dark), var(--gold-bright));
+      pointer-events: none;
     }
 
     .hero-content {
       position: relative; z-index: 2;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 6rem 5rem 4rem; max-width: 960px;
+      display: flex; flex-direction: column;
+      padding: 2rem 5rem 2rem; max-width: 960px;
     }
 
     .hero-eyebrow {
-      font-size: 1.15rem; font-weight: 700; letter-spacing: 0.35em;
-      color: var(--green-mid); text-transform: uppercase; margin-bottom: 2rem;
+      font-size: 1rem; font-weight: 700; letter-spacing: 0.35em;
+      color: var(--green-mid); text-transform: uppercase; margin-bottom: 1rem;
       display: flex; align-items: center; gap: 1rem;
       opacity: 0; animation: fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) forwards;
     }
@@ -88,16 +80,16 @@
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(5.5rem, 12vw, 12rem);
+      font-size: clamp(3rem, 6vw, 6rem);
       font-weight: 700; line-height: 1; letter-spacing: -0.02em;
-      color: #000000; margin-bottom: 2.5rem;
+      color: #000000; margin-bottom: 1.5rem;
       opacity: 0; animation: fadeUp 0.8s 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
     }
     .hero-title em { font-style: italic; color: var(--green-dark); }
 
     .hero-desc {
-      font-size: 1.35rem; font-weight: 500; line-height: 1.9;
-      color: #111111; max-width: 580px; margin-bottom: 3.5rem;
+      font-size: 1.1rem; font-weight: 500; line-height: 1.9;
+      color: #111111; max-width: 580px; margin-bottom: 2rem;
       border-left: 4px solid var(--gold-bright); padding-left: 1.5rem;
       opacity: 0; animation: fadeUp 0.8s 0.5s cubic-bezier(0.16,1,0.3,1) forwards;
     }
@@ -163,7 +155,7 @@
 
     /* ── WHAT WE DO ── */
     .what-we-do {
-      background: var(--white); padding: 7rem 5rem;
+      background: var(--white); padding: 4rem 5rem;
       border-top: 1px solid var(--border);
     }
 
