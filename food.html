@@ -64,7 +64,18 @@
     #food-lightbox.open { display: flex; animation: fadeIn 0.3s ease; }
     .lightbox-content { max-width: 900px; width: 100%; text-align: center; }
     .lightbox-content img { max-height: 70vh; width: auto; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
-    
+    .lightbox-desc {
+      max-width: 640px; margin: 1rem auto 0; font-size: 1.05rem;
+      line-height: 1.7; color: #444; text-align: center;
+    }
+    .lightbox-desc:empty { display: none; }
+    .lightbox-desc p { margin: 0 0 0.75rem; }
+    .lightbox-desc ul {
+      text-align: left; margin: 0.5rem auto 0; padding-left: 1.25rem;
+      max-width: 600px;
+    }
+    .lightbox-desc li { margin: 0.4rem 0; }
+
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
 </head>
@@ -87,6 +98,7 @@
     <div class="lightbox-content">
       <img id="lb-food-img" src="" alt="">
       <h2 id="lb-food-name" class="section-title" style="font-size: 2rem; margin-top: 1.5rem;"></h2>
+      <div id="lb-food-desc" class="lightbox-desc"></div>
     </div>
   </div>
 
@@ -143,9 +155,16 @@
         image: "Quinoa.jpeg"
       },
             {
-        name: "Curcuma Longa",
-        category: "Natural",
-        desc: "Curcuma Longa",
+        name: "Turmeric Powder (Curcuma Longa)",
+        category: "Spices",
+        desc: "Scientific name: Curcuma Longa",
+        detail: "We offer high-quality curcumin-rich turmeric powder, carefully sourced from tribal farming regions of India, known for their rich soil and traditional cultivation practices. Our turmeric stands out for its high curcumin content, vibrant natural color, and strong aroma, making it ideal for food, nutraceutical, and medicinal applications across global markets.",
+        points: [
+          "Our turmeric is known for its elevated curcumin levels, validated through reliable laboratory testing.",
+          "Free from artificial colors, preservatives, and chemical additives — 100% natural and unadulterated.",
+          "Processed in clean, controlled environments with strict adherence to hygiene and food safety standards.",
+          "Packed as per international export norms, ensuring product stability, freshness, and longer shelf life."
+        ],
         image: "Curcuma Longa.jpeg"
       },
             {
@@ -159,6 +178,25 @@
         category: "Natural",
         desc: "Cashew",
         image: "Cashew (Anacardium occidentale).jpeg"
+      },
+      {
+        name: "Black Pepper (Piper nigrum)",
+        category: "Spices",
+        desc: "Scientific name: Piper nigrum",
+        image: "Black Pepper (Piper nigrum).jpeg"
+      },
+      {
+        name: "Chakrakeli Banana",
+        category: "Fruits",
+        desc: "Scientific name: Musa acuminata",
+        detail: "We take pride in supplying premium-quality Chakkera Keli bananas, sourced directly from trusted farms in the fertile regions of Andhra Pradesh, India. Our bananas are known for their natural sweetness, rich aroma, and superior nutritional value, making them highly suitable for both fresh consumption and international markets.",
+        image: "Chakrakeli Banana (Musa acuminata).jpeg"
+      },
+      {
+        name: "Banana (Musa paradisiaca)",
+        category: "Fruits",
+        desc: "Scientific name: Musa paradisiaca",
+        image: "Banana (Musa paradisiaca).jpeg"
       }
     ];
 
@@ -187,6 +225,13 @@
     function openFoodLightbox(product) {
       document.getElementById('lb-food-img').src = `/images/food/${product.image}`;
       document.getElementById('lb-food-name').innerText = product.name;
+      const descEl = document.getElementById('lb-food-desc');
+      const intro = product.detail || product.desc || '';
+      let descHtml = intro ? `<p>${intro}</p>` : '';
+      if (product.points && product.points.length) {
+        descHtml += '<ul>' + product.points.map(p => `<li>${p}</li>`).join('') + '</ul>';
+      }
+      descEl.innerHTML = descHtml;
       document.getElementById('food-lightbox').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
